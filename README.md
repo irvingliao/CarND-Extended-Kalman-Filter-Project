@@ -91,39 +91,37 @@ More information is only accessible by people who are already enrolled in Term 2
 of CarND. If you are enrolled, see [the project resources page](https://classroom.udacity.com/nanodegrees/nd013/parts/40f38239-66b6-46ec-ae68-03afd8a601c8/modules/0949fca6-b379-42af-a919-ee50aa304e6a/lessons/f758c44c-5e40-4e01-93b5-1a82aa4e044f/concepts/382ebfd6-1d55-4487-84a5-b6a5a4ba1e47)
 for instructions and the project rubric.
 
-## Hints and Tips!
+## Discussion
 
-* You don't have to follow this directory structure, but if you do, your work
-  will span all of the .cpp files here. Keep an eye out for TODOs.
-* Students have reported rapid expansion of log files when using the term 2 simulator.  This appears to be associated with not being connected to uWebSockets.  If this does occur,  please make sure you are conneted to uWebSockets. The following workaround may also be effective at preventing large log files.
+[//]: # (Image References)
+[EKF00]: ./data/EKF_0.png "EKF 00"
+[EKF01]: ./data/EKF_1.png "EKF 01"
+[EKF03]: ./data/EKF_3.png "EKF 03"
+[Lidar00]: ./data/EKF_0_Lidar.png "Lidar 00"
+[Lidar01]: ./data/EKF_1_Lidar.png "Lidar 01"
+[Lidar03]: ./data/EKF_3_Lidar.png "Lidar 03"
+[Radar00]: ./data/EKF_0_Radar.png "Radar 00"
+[Radar01]: ./data/EKF_1_Radar.png "Radar 01"
+[Radar03]: ./data/EKF_3_Radar.png "Radar 03"
 
-    + create an empty log file
-    + remove write permissions so that the simulator can't write to log
- * Please note that the ```Eigen``` library does not initialize ```VectorXd``` or ```MatrixXd``` objects with zeros upon creation.
+Here I try to use Lidar or Radar measurement only to analyze the different result with each measurement.
 
-## Call for IDE Profiles Pull Requests
+#### Combined:  
+![alt text][EKF00]  
+![alt text][EKF01]  
+![alt text][EKF03]  
 
-Help your fellow students!
+#### Lidar only:  
+![alt text][Lidar00]  
+![alt text][Lidar01]  
+![alt text][Lidar03]  
 
-We decided to create Makefiles with cmake to keep this project as platform
-agnostic as possible. Similarly, we omitted IDE profiles in order to ensure
-that students don't feel pressured to use one IDE or another.
+#### Radar only:  
+Compared to Lidar, the spatial resolution of a radar sensor is relatively poor, so it looks like has less accuracy than Liar.
+![alt text][Radar00]  
+![alt text][Radar01]  
+![alt text][Radar03]  
 
-However! We'd love to help people get up and running with their IDEs of choice.
-If you've created a profile for an IDE that you think other students would
-appreciate, we'd love to have you add the requisite profile files and
-instructions to ide_profiles/. For example if you wanted to add a VS Code
-profile, you'd add:
+We can see each measurement alone will have some error and deviation, and Lidar is more acurrate in ideal Spatial condition, while Radar have the advantage to measure the velocity of the object and better accuracy if in poor weather.
 
-* /ide_profiles/vscode/.vscode
-* /ide_profiles/vscode/README.md
-
-The README should explain what the profile does, how to take advantage of it,
-and how to install it.
-
-Regardless of the IDE used, every submitted project must
-still be compilable with cmake and make.
-
-## How to write a README
-A well written README file can enhance your project and portfolio.  Develop your abilities to create professional README files by completing [this free course](https://www.udacity.com/course/writing-readmes--ud777).
-
+By combining the 2 measurement, we can minimize the error & deviation, and predict the object's behavior more accurate.
