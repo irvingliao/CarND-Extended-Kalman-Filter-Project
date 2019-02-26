@@ -106,22 +106,14 @@ for instructions and the project rubric.
 
 Here I try to use Lidar or Radar measurement only to analyze the different result with each measurement.
 
-#### Combined:  
-![alt text][EKF00]  
-![alt text][EKF01]  
-![alt text][EKF03]  
+|  Combined   |  Lidar         |  Radar         |
+|:-----------:|:--------------:|:--------------:| 
+| ![][EKF00]  |  ![][Lidar00]  |  ![][Radar00]  |
+| ![][EKF01]  |  ![][Lidar01]  |  ![][Radar01]  |
+| ![][EKF03]  |  ![][Lidar03]  |  ![][Radar03]  |
 
-#### Lidar only:  
-![alt text][Lidar00]  
-![alt text][Lidar01]  
-![alt text][Lidar03]  
-
-#### Radar only:  
 Compared to Lidar, the spatial resolution of a radar sensor is relatively poor, so it looks like has less accuracy than Liar.
-![alt text][Radar00]  
-![alt text][Radar01]  
-![alt text][Radar03]  
 
-We can see each measurement alone will have some error and deviation, and Lidar is more acurrate in ideal Spatial condition, while Radar have the advantage to measure the velocity of the object and better accuracy if in poor weather.
+We can see each measurement alone will have some error and deviation, and Lidar is more acurrate in ideal spatial condition, while Radar have the advantage to measure the velocity of the object and better accuracy if in poor weather.
 
-By combining the 2 measurement, we can minimize the error & deviation, and predict the object's behavior more accurate.
+By combining the 2 measurements, we can minimize the error & deviation, and predict the object's behavior more accurate.
